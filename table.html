@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid #ccc;
+            padding: 1em;
+            /* border-collapse: collapse; */
+        }
+        th{
+            background: rgb(200, 200, 200);
+        }
+        #total{
+            background: rgb(235, 235, 235);
+        }
+        .lightColor td{
+            background: rgb(235, 235, 235);
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        td {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./table.html">Table</a>
+        </nav>
+        <h1>My friend circle</h1>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Hobbies</th>
+                    <th>Assets in $</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="lightColor">
+                    <td>Jeelkumar</td>
+                    <td>Patel</td>
+                    <td>19</td>
+                    <td>Gaming and Movies</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Shaun</td>
+                    <td>McKinnon</td>
+                    <td>43</td>
+                    <td>Gaming and Teaching</td>
+                    <td>1000000</td>
+                </tr>
+                <tr class="lightColor">
+                    <td>Harsh</td>
+                    <td>Patel</td>
+                    <td>18</td>
+                    <td>Photography</td>
+                    <td>4500</td>
+                </tr>
+                <tr>
+                    <td>Jay</td>
+                    <td>Patel</td>
+                    <td>26</td>
+                    <td>Coding and Cricket</td>
+                    <td>10000</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr class="lightColor">
+                    <th id="total">Total Assets in $</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <footer>&copy; Jeel Patel 2022</footer>
+
+    <script>
+        const totalCells = document.querySelectorAll("tr > td:nth-child(5)");
+
+        let total = 0;
+
+        for (const cell of totalCells) total += parseInt(cell.textContent) || 0;
+
+        document.querySelector("tfoot > tr > td").textContent = `$${total.toFixed(2)}`;
+    </script>
+</body>
+
+</html>
